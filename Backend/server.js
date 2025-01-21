@@ -1,5 +1,4 @@
 const exp=require('express')
-const mon=require('mongoose');
 const Product=require('./schema');
 const cors=require('cors');
 const Port=5000 || process.env.Port;
@@ -17,7 +16,8 @@ fun();
 
 app.get('/getdata',async(req,res)=>{
     try{
-        const {pageno}=req.body;
+        const {pageno}=req.query;
+        console.log('Page:',pageno);
         const lb=pageno*20;
         const ub=lb-20;
         res.send(data.slice(ub,lb));
