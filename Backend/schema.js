@@ -1,6 +1,6 @@
 const mon=require('mongoose');
 
-mon.connect('mongodb://localhost:27017/assignment',{useNewUrlParser:true,useUnifiedTopology:true})
+mon.connect('mongodb://localhost:27017/assignment')
 .then(()=>console.log('Connected to database'))
 .catch((err)=>console.log('Error:',err));
 
