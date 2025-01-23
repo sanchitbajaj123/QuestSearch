@@ -14,3 +14,15 @@ export const getData=async(pageno)=>{
         console.log(err);
     }
 }
+export const getDoc=async(id)=>{
+    try{
+        const res = await axios.get(`${API}/getdoc`, {
+            params: { id }, 
+        });
+        console.log('Doc:',res.data);
+        return res.data;
+    }
+    catch(err){
+        console.log(err);
+    }
+}

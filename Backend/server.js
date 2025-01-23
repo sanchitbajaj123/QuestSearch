@@ -26,6 +26,19 @@ app.get('/getdata',async(req,res)=>{
         console.log(err);
     }
 })
+app.get('/getdoc',async(req,res)=>{
+    try{
+        const {id}=req.query;
+        console.log('Id:',id);
+        for(let i=0;i<data.length;i++){
+            if(data[i]._id==id){
+                res.send(data[i]);
+                break;
+            }
+        }}
+    catch(err){
+        console.log(err);
+    }})
 app.listen(Port,()=>{
 console.log('Server started at port:',Port);
 })
