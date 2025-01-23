@@ -4,10 +4,11 @@ body {
   color: #ffffff;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
 .datap {
-  margin-top: 7%;
+  margin-top: 2.5%;
   margin-left: 12%;
   margin-right: 12%;
   padding: 10px;
@@ -169,3 +170,55 @@ body {
   color: red;
 }
 
+/* Container for input and image */
+.search-input-container {
+  position: relative;
+  display: inline-block;
+  width: 30%;
+  margin-top: 2%;
+}
+
+
+.search-input {
+  width: 100%;
+  padding: 12px 40px 12px 20px; /* Add padding-right for the icon */
+  font-size: 16px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 25px;
+  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+  color: #333;
+}
+
+.search-input:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 10px rgba(74, 144, 226, 0.7);
+  background: #f0f8ff;
+}
+
+.search-input::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+.search-input:hover {
+  border-color: #357ab8;
+}
+
+
+.search-icon {
+  position: absolute;
+  right: -26px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.search-icon:hover {
+  transform: translateY(-50%) scale(1.1);
+}

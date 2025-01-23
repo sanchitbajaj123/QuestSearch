@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getData, getDoc } from './Api';
 import './App.css';
-
+import Searchinp from './Search';
 function App() {
   const [pageno, setPageno] = useState(1);
   const [data, setData] = useState([]);
@@ -29,6 +29,9 @@ function App() {
 
   return (
     <>
+      <center>
+      <Searchinp/>
+      </center>
       <div className="datap" style={{ filter: model ? 'blur(4px)' : 'none' }}>
         <table className="data-table">
           <thead>
