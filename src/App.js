@@ -29,7 +29,6 @@ function App() {
 
   return (
     <>
-      {/* Main Content */}
       <div className="datap" style={{ filter: model ? 'blur(4px)' : 'none' }}>
         <table className="data-table">
           <thead>
@@ -51,7 +50,6 @@ function App() {
         </table>
       </div>
 
-      {/* Pagination */}
       <div className="pagination">
         <button onClick={() => setPageno(pageno - 1)} disabled={pageno === 1}>
           Previous
