@@ -5,14 +5,17 @@ import './App.css';
 function App() {
   const [pageno, setPageno] = useState(1);
   const [data, setData] = useState([]);
+  const itemsPerPage = 20;
 
   useEffect(() => {
     const fetchData = async () => {
-      const d = await getData(pageno);
+      const d = await getData(pageno); 
       setData(d);
     };
     fetchData();
   }, [pageno]);
+
+  const startingIndex = (pageno - 1) * itemsPerPage;
 
   return (
     <>
@@ -20,13 +23,15 @@ function App() {
         <table className="data-table">
           <thead>
             <tr>
+              <th>S.No</th>
               <th>Type</th>
               <th>Title</th>
             </tr>
           </thead>
           <tbody>
-            {data.map((item) => (
+            {data.map((item, index) => (
               <tr key={item._id}>
+                <td>{startingIndex + index + 1}</td>
                 <td>{item.type}</td>
                 <td>{item.title}</td>
               </tr>
@@ -38,8 +43,13 @@ function App() {
         <button onClick={() => setPageno(pageno - 1)} disabled={pageno === 1}>
           Previous
         </button>
-        <span className='page-number'>{pageno}</span>
-        <button onClick={() => setPageno(pageno + 1)}>Next</button>
+        <span className="page-number">{pageno}</span>
+        <button
+          onClick={() => setPageno(pageno + 1)}
+          disabled={data.length < itemsPerPage}
+        >
+          Next
+        </button>
       </div>
     </>
   );
