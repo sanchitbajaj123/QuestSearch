@@ -26,3 +26,13 @@ export const getDoc=async(id)=>{
         console.log(err);
     }
 }
+export const searchq=async(query)=>{
+    try{
+        const res = await axios.post(`${API}/search`, { query });
+        console.log('Search:',res.data);
+        return res.data;
+    }
+    catch(err){
+        console.log(err);
+    }
+}

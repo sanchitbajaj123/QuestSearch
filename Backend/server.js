@@ -14,6 +14,20 @@ const fun = async () => {
 };
 fun(); 
 
+app.post('/search',async(req,res)=>{
+    try{
+        const {query}=req.body;
+        console.log('Query:',query);
+        const result = data.filter((item) =>
+            item.title.toLowerCase().includes(query.toLowerCase())
+          ); 
+          res.json(result);
+    } 
+    catch(e){
+        console.log(e)
+    }
+    })
+
 app.get('/getdata',async(req,res)=>{
     try{
         const {pageno}=req.query;
