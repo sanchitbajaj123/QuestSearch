@@ -16,12 +16,16 @@ fun();
 
 app.post('/search',async(req,res)=>{
     try{
-        const {query}=req.body;
+        const {query,pageno}=req.body;
         console.log('Query:',query);
         const result = data.filter((item) =>
             item.title.toLowerCase().includes(query.toLowerCase())
           ); 
-          res.json(result);
+          const lb=pageno*20;
+          const ub=lb-20;
+          const totalPages = Math.ceil(result.length / 20);
+        res.send({totalPages:totalPages
+            ,data:result.slice(ub,lb)});
     } 
     catch(e){
         console.log(e)
@@ -34,7 +38,10 @@ app.get('/getdata',async(req,res)=>{
         console.log('Page:',pageno);
         const lb=pageno*20;
         const ub=lb-20;
-        res.send(data.slice(ub,lb));
+        const totalPages = Math.ceil(data.slice(ub,lb).length / 20);
+        res.send({data:data.slice(ub,lb),
+            totalPages:totalPages
+        });
     }
     catch(err){
         console.log(err);

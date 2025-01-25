@@ -7,16 +7,17 @@ function App() {
   const [data, setData] = useState([]);
   const [doc, setDoc] = useState({});
   const [model, setModel] = useState(false);
+  const[query,setQuery]=useState("");
 
   const itemsPerPage = 20;
 
   useEffect(() => {
     const fetchData = async () => {
-      const d = await getData(pageno); 
+      const d = await getData(query,pageno); 
       setData(d);
     };
     fetchData();
-  }, [pageno]);
+  }, [pageno,query]);
 
   const startingIndex = (pageno - 1) * itemsPerPage;
 
@@ -30,7 +31,7 @@ function App() {
   return (
     <>
       <center>
-      <Searchinp/>
+      <Searchinp setData={setData} pageno={pageno} query={query} setQuery={setQuery}/>
       </center>
       <div className="datap" style={{ filter: model ? 'blur(4px)' : 'none' }}>
         <table className="data-table">
