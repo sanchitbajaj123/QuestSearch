@@ -145,16 +145,16 @@ body {
   background: #285a8c;
 }
 .model {
-  position: fixed; /* Ensures the modal is fixed in place */
+  position: fixed; 
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7); /* Dim the background */
+  background-color: rgba(0, 0, 0, 0.7); 
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000; /* Ensures it appears above everything else */
+  z-index: 1000; 
 }
 
 .model-content {
@@ -184,7 +184,7 @@ body {
   color: red;
 }
 
-/* Container for input and image */
+
 .search-input-container {
   position: relative;
   display: inline-block;
@@ -195,7 +195,7 @@ body {
 
 .search-input {
   width: 100%;
-  padding: 12px 40px 12px 20px; /* Add padding-right for the icon */
+  padding: 12px 40px 12px 20px; 
   font-size: 16px;
   border: 2px solid rgba(0, 0, 0, 0.2);
   border-radius: 25px;
@@ -237,9 +237,7 @@ body {
   transform: translateY(-50%) scale(1.1);
 }
 
-/* Base styles remain unchanged */
 
-/* Responsive Design */
 @media screen and (max-width: 768px) {
   .datap {
     height: 60vh;
