@@ -38,7 +38,8 @@ app.get('/getdata',async(req,res)=>{
         console.log('Page:',pageno);
         const lb=pageno*20;
         const ub=lb-20;
-        const totalPages = Math.ceil(data.slice(ub,lb).length / 20);
+        const totalPages = Math.ceil(data.length / 20);
+        console.log('Total Pages:',totalPages);
         res.send({data:data.slice(ub,lb),
             totalPages:totalPages
         });

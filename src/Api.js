@@ -10,7 +10,7 @@ export const getData=async(query,pageno)=>{
             params: { pageno }, 
         });
         console.log('Data:',res.data);
-        return res.data;}
+        return { data: res.data.data, totalPages:res.data.totalPages };}
         else{
             return searchq(query,pageno);
         }
@@ -40,7 +40,7 @@ export const searchq=async(query,pageno)=>{
         else{
         const res = await axios.post(`${API}/search`, { query,pageno });
         console.log('Search:',res.data);
-        return res.data.data;}
+        return { data: res.data.data, totalPages:res.data.totalPages };}
     }
     catch(err){
         console.log(err);

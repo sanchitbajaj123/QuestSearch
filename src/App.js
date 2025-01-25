@@ -8,13 +8,18 @@ function App() {
   const [doc, setDoc] = useState({});
   const [model, setModel] = useState(false);
   const[query,setQuery]=useState("");
+  const[totalPages,setTotalPages]=useState(0);
 
   const itemsPerPage = 20;
 
   useEffect(() => {
     const fetchData = async () => {
       const d = await getData(query,pageno); 
-      setData(d);
+      console.log('Data:', d);
+      setData(d.data);
+      console.log(data);
+      setTotalPages(d.totalPages);
+      console.log(totalPages);
     };
     fetchData();
   }, [pageno,query]);
@@ -31,7 +36,7 @@ function App() {
   return (
     <>
       <center>
-      <Searchinp setData={setData} pageno={pageno} query={query} setQuery={setQuery}/>
+      <Searchinp query={query} setQuery={setQuery}/>
       </center>
       <div className="datap" style={{ filter: model ? 'blur(4px)' : 'none' }}>
         <table className="data-table">
@@ -58,7 +63,7 @@ function App() {
         <button onClick={() => setPageno(pageno - 1)} disabled={pageno === 1}>
           Previous
         </button>
-        <span className="page-number">{pageno}</span>
+        <span className="page-number">{pageno}/{totalPages}</span>
         <button
           onClick={() => setPageno(pageno + 1)}
           disabled={data.length < itemsPerPage}
