@@ -35,9 +35,24 @@ function App() {
 
   return (
     <>
+      <div className='header' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+      <h1 style={{
+        fontFamily: "'Roboto', Arial, sans-serif",
+        textAlign: "center",
+        color: "#ffffff",
+        textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
+        background: "linear-gradient(135deg, #4a90e2, #357ab8)",
+        borderRadius: "8px",
+        height: "fit-content",
+        boxShadow: "0 4px 10px rgba(0, 0, 0, 0.3)",
+      }}>
+  QUEST SEARCH
+</h1>
+
       <center>
       <Searchinp query={query} setQuery={setQuery}/>
       </center>
+      </div>
       <div className="datap" style={{ filter: model ? 'blur(4px)' : 'none' }}>
         <table className="data-table">
           <thead>

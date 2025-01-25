@@ -6,7 +6,21 @@ body {
   padding: 0;
   overflow: hidden;
 }
-
+.header{
+  display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.header h1{
+  font-family: Roboto, Arial, sans-serif;
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(135deg, #4a90e2, #357ab8);
+  border-radius: 8px;
+  height: fit-content;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
 .datap {
   margin-top: 2.5%;
   margin-left: 12%;
@@ -174,7 +188,7 @@ body {
 .search-input-container {
   position: relative;
   display: inline-block;
-  width: 30%;
+  width: 80%;
   margin-top: 2%;
 }
 
@@ -221,4 +235,79 @@ body {
 
 .search-icon:hover {
   transform: translateY(-50%) scale(1.1);
+}
+
+/* Base styles remain unchanged */
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .datap {
+    height: 60vh;
+  }
+
+  .data-table th,
+  .data-table td {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .pagination button {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+
+  .page-number {
+    padding: 6px 10px;
+    font-size: 14px;
+  }
+
+  .model-content {
+    width: 95%;
+    padding: 10px;
+  }
+
+  .search-input {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .header{
+    display: flex;
+    flex-direction: column;
+  }
+  .header h1{
+    font-size: 20px;
+  }
+
+  .datap {
+    height: 73vh;
+    
+  }
+
+  .data-table th,
+  .data-table td {
+    font-size: 10px;
+  }
+
+  .pagination button {
+    padding: 5px 8px;
+    font-size: 10px;
+  }
+
+  .page-number {
+    padding: 5px 8px;
+    font-size: 12px;
+  }
+
+  .search-input {
+    padding: 6px 10px;
+    font-size: 10px;
+  }
+  .search-icon{
+    height: 18px;
+    width: 18px;
+    right: -18px;
+  }
 }

@@ -9,7 +9,7 @@ function Searchinp({query,setQuery}) {
     <div className="search-input-container">
       <input
         type="text"
-        placeholder="Type at least 3 characters to search"
+        placeholder="Type to search by title..."
         className="search-input"
         value={query}
         onChange={search}
