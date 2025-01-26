@@ -29,7 +29,7 @@ function App() {
 
   useEffect(() => {
     if (searchType === 'ALL' || !searchType) {
-      setFilteredData(data);  // Show all data when 'ALL' or empty is selected
+      setFilteredData(data);  
     } else {
       setFilteredData(data.filter((item) => item.type === searchType));
     }
@@ -71,7 +71,7 @@ function App() {
             style={{
               marginLeft: '80px',
               padding: '10px 15px',
-              borderRadius: '50px', // Make the select box round
+              borderRadius: '50px', 
               border: '1px solid white',
               outline: 'none',
               background: 'linear-gradient(135deg, #ffffff, #e6f0ff)',
@@ -136,36 +136,74 @@ function App() {
       </div>
 
       {model && (
-        <div className="model">
-          <div className="model-content">
-            <span className="close" onClick={() => setModel(false)}>
-              X
-            </span>
-            <h2>Document Details</h2>
-            <div
-              style={{
-                maxHeight: '400px',
-                overflowY: 'auto',
-                display: 'grid',
-                gap: '15px',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-              }}
-            >
-              {Object.entries(doc).map(([key, value]) => (
-                <div className="data-card" key={key}>
-                  <div className="data-key">{key}</div>
-                  <div className="data-value">
-                    {typeof value === 'object'
-                      ? JSON.stringify(value, null, 2)
-                      : value}
-                  </div>
+  <div className="model">
+    <div className="model-content">
+      <span className="close" onClick={() => setModel(false)}>
+        X
+      </span>
+      <h2 className="modal-title">Document Details</h2>
+      <div
+        style={{
+          maxHeight: '400px',
+          overflowY: 'auto',
+          display: 'grid',
+          gap: '15px',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+        }}
+      >
+        {Object.entries(doc).map(([key, value]) => {
+          if (key === '_id' || key === 'siblingId') return null;
+
+          if (key === 'options' && Array.isArray(value)) {
+            // Handling MCQ options
+            return (
+              <div className="data-card" key={key}>
+                <div className="data-key">Options</div>
+                <div className="data-value">
+                  {value.map((option, index) => (
+                    <div key={index}>
+                      <p>{option.text}</p>
+                      {/* Correct Answer should be shown correctly */}
+                      {option.isCorrectAnswer && <span className="correct-answer">(Correct Answer)</span>}
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
+            );
+          }
+
+          if (key === 'blocks' && Array.isArray(value)) {
+            // Rendering blocks for anagrams or other types of questions
+            return (
+              <div className="data-card" key={key}>
+                <div className="data-key">Blocks</div>
+                <div className="data-value">
+                  {value.map((block, index) => (
+                    <div key={index}>
+                      <p>Title: {block.title}</p>
+                      {block.solution && <p>Solution: {block.solution}</p>}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            );
+          }
+
+          // General fields
+          return (
+            <div className="data-card" key={key}>
+              <div className="data-key">{key}</div>
+              <div className="data-value">
+                {typeof value === 'object' ? JSON.stringify(value, null, 2) : value}
+              </div>
             </div>
-          </div>
-        </div>
-      )}
-    </>
+          );
+        })}
+      </div>
+    </div>
+  </div>
+)}
+</>
   );
 }
 

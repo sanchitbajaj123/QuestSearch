@@ -386,3 +386,18 @@ li strong {
    display: none;
   }
 }
+
+.modal-title {
+  text-decoration: underline;
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.data-key {
+  font-weight: bold;
+}
+
+.correct-answer {
+  color: green;
+  font-weight: bold;
+}
