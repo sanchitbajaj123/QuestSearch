@@ -1,71 +1,63 @@
-const express = require('express');
-const Product = require('./schema');
-const cors = require('cors');
+const exp=require('express')
+const Product=require('./schema');
+const cors=require('cors');
+const Port=5000 || process.env.Port;
 
-const Port = process.env.PORT || 5000;
+const app=exp();
+app.use(cors(
+    {
+        origin: '*',      
+}));
+app.use(exp.json());
 
-const app = express();
-
-app.use(cors({ origin: '*' }));
-app.use(express.json());
-
-app.get('/', (req, res) => {
-    res.send("Welcome to Quest Search");
-});
-
-app.post('/search', async (req, res) => {
-    try {
-        const { query, pageno } = req.body;
-        const lb = (pageno - 1) * 20;
-        const limit = 20;
-
-        const result = await Product.find({ title: new RegExp(query, 'i') })
-            .skip(lb)
-            .limit(limit);
-
-        const totalDocs = await Product.countDocuments({ title: new RegExp(query, 'i') });
-        const totalPages = Math.ceil(totalDocs / limit);
-
-        res.send({ totalPages, data: result });
-    } catch (e) {
-        console.error('Error in search:', e);
-        res.status(500).send('Internal Server Error');
+let data = [];
+const fun = async () => {
+    data = await Product.find().lean();; 
+};
+fun(); 
+app.get('/',(req,res)=>{
+    res.send("Welcome to Quest Search")
+})
+app.post('/search',async(req,res)=>{
+    try{
+        const {query,pageno}=req.body;
+                const result = data.filter((item) =>
+            item.title.toLowerCase().includes(query.toLowerCase())
+          ); 
+          const lb=pageno*20;
+          const ub=lb-20;
+          const totalPages = Math.ceil(result.length / 20);
+        res.send({totalPages:totalPages
+            ,data:result.slice(ub,lb)});
+    } 
+    catch(e){
+        console.log(e)
     }
-});
+    })
 
-app.get('/getdata', async (req, res) => {
-    try {
-        const { pageno } = req.query;
-        const lb = (pageno - 1) * 20;
-        const limit = 20;
-
-        const data = await Product.find().skip(lb).limit(limit);
-        const totalDocs = await Product.countDocuments();
-        const totalPages = Math.ceil(totalDocs / limit);
-
-        res.send({ data, totalPages });
-    } catch (err) {
-        console.error('Error in getdata:', err);
-        res.status(500).send('Internal Server Error');
+app.get('/getdata',async(req,res)=>{
+    try{
+        const {pageno}=req.query;
+                const lb=pageno*20;
+        const ub=lb-20;
+        const totalPages = Math.ceil(data.length / 20);
+                res.send({data:data.slice(ub,lb),
+            totalPages:totalPages
+        });
     }
-});
-
-app.get('/getdoc', async (req, res) => {
-    try {
-        const { id } = req.query;
-        const product = await Product.findById(id);
-
-        if (!product) {
-            return res.status(404).send('Product not found');
-        }
-
-        res.send(product);
-    } catch (err) {
-        console.error('Error in getdoc:', err);
-        res.status(500).send('Internal Server Error');
-    }
-});
-
-app.listen(Port, () => {
-    console.log(`Server running on port ${Port}`);
-});
+    catch(err){
+            }
+})
+app.get('/getdoc',async(req,res)=>{
+    try{consol
+        const {id}=req.query;
+                for(let i=0;i<data.length;i++){
+            if(data[i]._id==id){
+                res.send(data[i]);
+                break;
+            }
+        }}
+    catch(err){
+            }})
+app.listen(Port,()=>{
+})

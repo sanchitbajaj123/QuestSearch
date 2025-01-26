@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API="https://quest-search-k727.vercel.app/";
+const API="https://questsearch-us5k.onrender.com";
 
 export const getData=async(query,pageno)=>{
     try{
