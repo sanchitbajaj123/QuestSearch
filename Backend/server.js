@@ -10,15 +10,13 @@ app.use(exp.json());
 let data = [];
 const fun = async () => {
     data = await Product.find(); 
-    console.log('Data:', data); 
 };
 fun(); 
 
 app.post('/search',async(req,res)=>{
     try{
         const {query,pageno}=req.body;
-        console.log('Query:',query);
-        const result = data.filter((item) =>
+                const result = data.filter((item) =>
             item.title.toLowerCase().includes(query.toLowerCase())
           ); 
           const lb=pageno*20;
@@ -35,32 +33,26 @@ app.post('/search',async(req,res)=>{
 app.get('/getdata',async(req,res)=>{
     try{
         const {pageno}=req.query;
-        console.log('Page:',pageno);
-        const lb=pageno*20;
+                const lb=pageno*20;
         const ub=lb-20;
         const totalPages = Math.ceil(data.length / 20);
-        console.log('Total Pages:',totalPages);
-        res.send({data:data.slice(ub,lb),
+                res.send({data:data.slice(ub,lb),
             totalPages:totalPages
         });
     }
     catch(err){
-        console.log(err);
-    }
+            }
 })
 app.get('/getdoc',async(req,res)=>{
-    try{
+    try{consol
         const {id}=req.query;
-        console.log('Id:',id);
-        for(let i=0;i<data.length;i++){
+                for(let i=0;i<data.length;i++){
             if(data[i]._id==id){
                 res.send(data[i]);
                 break;
             }
         }}
     catch(err){
-        console.log(err);
-    }})
+            }})
 app.listen(Port,()=>{
-console.log('Server started at port:',Port);
 })

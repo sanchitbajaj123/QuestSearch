@@ -15,12 +15,9 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       const d = await getData(query,pageno); 
-      console.log('Data:', d);
-      setData(d.data);
-      console.log(data);
-      setTotalPages(d.totalPages);
-      console.log(totalPages);
-    };
+            setData(d.data);
+            setTotalPages(d.totalPages);
+          };
     fetchData();
   }, [pageno,query]);
 
@@ -28,8 +25,7 @@ function App() {
 
   async function handleClick(id) {
     const doc = await getDoc(id);
-    console.log(doc);
-    setDoc(doc);
+        setDoc(doc);
     setModel(true);
   }
 
