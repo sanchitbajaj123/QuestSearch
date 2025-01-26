@@ -6,10 +6,7 @@ const Port=5000 || process.env.Port;
 const app=exp();
 app.use(cors(
     {
-        origin: 'https://quest-search-gilt.vercel.app/',
-        methods: 'GET,POST,PUT,DELETE',
-        credentials: true, 
-      
+        origin: '*',      
 }));
 app.use(exp.json());
 
