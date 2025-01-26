@@ -1,70 +1,108 @@
-# Getting Started with Create React App
+# Project Title
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Project Logo](path-to-your-logo.png)
 
-## Available Scripts
+This is a **Question Search System** designed to efficiently search through a heavy database using a REST API and a pagination technique. It allows users to search questions, view results, and navigate through multiple pages of data without overloading the system.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Project Details
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Description**: The project implements a search functionality for querying questions stored in a database, using a case-insensitive search and pagination to handle large datasets efficiently.
+- **API Type**: REST API
+- **Pagination**: The search results are paginated, displaying 20 items per page.
+- **Technology**: This project leverages a combination of frontend and backend technologies to provide seamless user interaction with efficient data retrieval.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Frontend
 
-### `npm run build`
+![React Logo](path-to-react-logo.png)  
+**React.js** – A JavaScript library for building user interfaces.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Tailwind CSS Logo](path-to-tailwind-logo.png)  
+**Tailwind CSS** – A utility-first CSS framework for rapid UI development.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Backend
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![Node.js Logo](path-to-nodejs-logo.png)  
+**Node.js** – A JavaScript runtime built on Chrome's V8 JavaScript engine.
 
-### `npm run eject`
+![Express Logo](path-to-express-logo.png)  
+**Express.js** – A web application framework for Node.js.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Database
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![MongoDB Logo](path-to-mongodb-logo.png)  
+**MongoDB** – A NoSQL database used to store the question data.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Installation
 
-## Learn More
+### Backend Setup
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Navigate to the backend directory:
+    ```bash
+    cd backend
+    ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. Install the required dependencies:
+    ```bash
+    npm install
+    ```
 
-### Code Splitting
+3. Start the backend server:
+    ```bash
+    npm start
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Frontend Setup
 
-### Analyzing the Bundle Size
+1. Navigate to the frontend directory:
+    ```bash
+    cd frontend
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+2. Install the required dependencies:
+    ```bash
+    npm install
+    ```
 
-### Making a Progressive Web App
+3. Start the frontend application:
+    ```bash
+    npm start
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Your application should now be running on `http://localhost:3000`.
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Screenshots
 
-### Deployment
+### Screenshot 1
+![Screenshot 1](path-to-your-screenshot1.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Screenshot 2
+![Screenshot 2](path-to-your-screenshot2.png)
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## Contact
+
+For any questions, feel free to reach out!
+
+- **Your Name**: [Your Email](mailto:your-email@example.com)
+- **GitHub**: [Your GitHub Profile](https://github.com/yourusername)
+
+---
+
+Thank you
