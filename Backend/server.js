@@ -10,7 +10,7 @@ app.use(cors({ origin: '*' }));
 app.use(express.json());
 
 app.get('/', (req, res) => {
-    res.send("Welcome to Quest Search");
+    res.json("Welcome to Quest Search");
 });
 
 app.post('/search', async (req, res) => {
