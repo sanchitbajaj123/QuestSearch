@@ -4,10 +4,12 @@ const API="https://quest-search-k727.vercel.app";
 
 export const getData=async(query,pageno)=>{
     try{
+        console.log(query,pageno);
                 if(query===""){
         const res = await axios.get(`${API}/getdata`, {
             params: { pageno }, 
         });
+        console.log(res.data);
                 return { data: res.data.data, totalPages:res.data.totalPages };}
         else{
             return searchq(query,pageno);
