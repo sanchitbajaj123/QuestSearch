@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API="https://quest-search-k727.vercel.app";
+const API="http://localhost:5000";
 
 export const getData=async(query,pageno)=>{
     try{
