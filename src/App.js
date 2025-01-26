@@ -106,16 +106,17 @@ function App() {
               X
             </span>
             <h2>Document Details</h2>
-            <div style={{ maxHeight: '400px', overflowY: 'auto' }}>
-              <ul>
-                {Object.entries(doc).map(([key, value]) => (
-                  <li key={key}>
-                    <strong>{key}:</strong>{' '}
-                    {typeof value === 'object' ? JSON.stringify(value, null, 2) : value}
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <div style={{ maxHeight: '400px', overflowY: 'auto', display: 'grid', gap: '15px', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))' }}>
+  {Object.entries(doc).map(([key, value]) => (
+    <div className="data-card" key={key}>
+      <div className="data-key">{key}</div>
+      <div className="data-value">
+        {typeof value === 'object' ? JSON.stringify(value, null, 2) : value}
+      </div>
+    </div>
+  ))}
+</div>
+
           </div>
         </div>
       )}
