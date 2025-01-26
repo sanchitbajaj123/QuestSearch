@@ -18,7 +18,9 @@ const fun = async () => {
     data = await Product.find(); 
 };
 fun(); 
-
+app.get('/',(req,res)=>{
+    res.send("Welcome to Quest Search")
+})
 app.post('/search',async(req,res)=>{
     try{
         const {query,pageno}=req.body;
