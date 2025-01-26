@@ -12,7 +12,7 @@ app.use(exp.json());
 
 let data = [];
 const fun = async () => {
-    data = await Product.find(); 
+    data = await Product.find().lean();; 
 };
 fun(); 
 app.get('/',(req,res)=>{

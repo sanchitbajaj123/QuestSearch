@@ -1,7 +1,9 @@
 const mon = require('mongoose');
 require('dotenv').config();
 
-mon.connect(process.env.URL)
+mon.connect(process.env.URL,{
+    serverSelectionTimeoutMS: 5000,
+})
 .then(() => console.log('Connected to database'))
 .catch((err) => console.error('Error:', err));
 
