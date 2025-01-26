@@ -224,10 +224,11 @@ li strong {
 
 
 .search-input-container {
+
   position: relative;
   display: inline-block;
   width: 80%;
-  margin-top: 2%;
+  margin-top: 4%;
 }
 
 
@@ -309,6 +310,7 @@ li strong {
   }
 }
 
+
 @media screen and (max-width: 768px) {
   .datap {
     height: 60vh;
@@ -342,6 +344,7 @@ li strong {
 }
 
 @media screen and (max-width: 480px) {
+
   .header{
     display: flex;
     flex-direction: column;
@@ -378,5 +381,8 @@ li strong {
     height: 18px;
     width: 18px;
     right: -18px;
+  }
+  #search-type{
+   display: none;
   }
 }
