@@ -88,7 +88,7 @@ Your application should now be running on `http://localhost:3000`.
 
 For any questions, feel free to reach out!
 
-- **Your Name**: [SANCHIT BAJAJ](mailto:sanchitbajaj2003@gmail.com)
+- **Name**: [SANCHIT BAJAJ](mailto:sanchitbajaj2003@gmail.com)
 - **GitHub**: [sanchitbajaj123]([(https://github.com/sanchitbajaj123)])
 
 ---
